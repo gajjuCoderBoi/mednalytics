@@ -5,8 +5,8 @@ var output;
 var file;
 
 function Upload() {
-    var realBtn = document.getElementById("real-file"); 
-    realBtn.click();  
+    var realBtn = document.getElementById("real-file");
+    realBtn.click();
     return false;
 }
 
@@ -31,9 +31,9 @@ function Changed(event) {
     file = event.target.files[0];
     output = document.getElementById('myImg');
     output.src = URL.createObjectURL(event.target.files[0]);
-    text.innerHTML = realBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];      
+    text.innerHTML = realBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
 }
- 
+
 function checkDisease(event) {
     event.preventDefault()
     let req = new XMLHttpRequest();
@@ -46,22 +46,30 @@ function checkDisease(event) {
     let city = document.getElementById("city").value;
     let dob = document.getElementById("dob").value;
     let date = document.getElementById("date").value;
-    
-    
-    formData.append("photo", file);                                
+
+
+    formData.append("photo", file);
     req.open("POST", 'http://localhost:5000/prediction?model='+disease+'&fname='+fname+'&lname='+lname+'&ins_ID='+ins_ID+'&city='+city+'&dob='+dob+'&date='+date);
     req.onreadystatechange = function() {
-        
+
         let pred = JSON.parse(this.response).Prediction.toString();
-        
-         
+
+
         if(pred === "1"){
             textOver.innerHTML = "Infected";
-            textOver.style.color = "red";
+            //textOver.style.color = "red";
+            if(textOver.classList.contains('btn-success')){
+                textOver.classList.remove('btn-success');
+                textOver.classList.add('btn-danger');
+            }
         }
         if(pred === "0") {
             textOver.innerHTML = "Not Infected";
-            textOver.style.color = "green";
+            //textOver.style.color = "green";
+            if(textOver.classList.contains('btn-danger')){
+                textOver.classList.remove('btn-danger');
+                textOver.classList.add('btn-success');
+            }
         }
     };
     req.send(formData);

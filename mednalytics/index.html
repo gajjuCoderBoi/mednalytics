@@ -729,7 +729,9 @@
                   <div class="form-group">
                     <input type="file" id="real-file" hidden="hidden" onchange="Changed(event)">
                     <button type="button" class="btn btn-secondary btn-lg" name="image-select" id="upload-button" onclick="Upload()"><i class="material-icons">add_photo_alternate</i> Select Image</button>
+<!--
                     <span id="custom-text" text="muted">No image chosen, yet</span>
+-->
 
                   </div>
                   <div class="form-group">
@@ -745,6 +747,23 @@
                     <button type="button" class="btn btn-info btn-lg" id="reset-button" hidden="hidden" onclick="Reset()">Reset</button>
                   </div>
                 </form>
+                <div class="ms-card ms-widget ms-profile-widget ms-card-fh br-0">
+                  <div class="ms-card-img">
+                    <img src="assets/img/gallery-4-760x260.jpg" alt="card_img">
+                  </div>
+                  <div class="ms-card-body">
+                    <h2 id="custom-text" text="muted">No Image Chosen</h2>
+                    <button type="button" class="btn btn-lg" name="button">Infected</button>
+                    <ul class="ms-profile-stats">
+                      <li>
+                        <button type="submit" id="check-disease" class="btn btn-primary btn-lg" onclick="checkDisease(event)">Check Disease</button>
+                      </li>
+                      <li>
+                        <button type="button" class="btn btn-info btn-lg" id="reset-button" onclick="Reset()">Reset</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
