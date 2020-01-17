@@ -17,16 +17,19 @@ function Reset(){
 
 
 function Changed(event) {
-    var realBtn = document.getElementById("real-file");
-    var text = document.getElementById("custom-text");
-    var checkButton = document.getElementById("check-disease");
-    var uploadBtn = document.getElementById("upload-button");
-    var resetBtn = document.getElementById("reset-button");
+    let realBtn = document.getElementById("real-file");
+    let text = document.getElementById("custom-text");
+    let checkButton = document.getElementById("check-disease");
+    let uploadBtn = document.getElementById("upload-button");
+    let resetBtn = document.getElementById("reset-button");
+    let diagnoseImage = document.getElementById("diagnose-image")
     if(realBtn.value){
         uploadBtn.disabled = true;
-        text.innerHTML = realBtn.value
+        text.innerHTML = realBtn.value;
         checkButton.hidden = false;
         resetBtn.hidden = false;
+        // diagnoseImage.hidden=false;
+        diagnoseImage.style.display='block';
     }
     file = event.target.files[0];
     output = document.getElementById('myImg');
@@ -38,7 +41,8 @@ function checkDisease(event) {
     event.preventDefault()
     let req = new XMLHttpRequest();
     let formData = new FormData();
-    var textOver = document.getElementById("textOver");
+    let textOver = document.getElementById("textOver");
+    let diseaseState = document.getElementById("disease-state");
     let disease = document.getElementById("disease").value;
     let fname = document.getElementById("fname").value;
     let lname = document.getElementById("lname").value;
@@ -56,20 +60,15 @@ function checkDisease(event) {
 
 
         if(pred === "1"){
-            textOver.innerHTML = "Infected";
-            //textOver.style.color = "red";
-            if(textOver.classList.contains('btn-success')){
-                textOver.classList.remove('btn-success');
-                textOver.classList.add('btn-danger');
-            }
+            diseaseState.hidden=false;
+            diseaseState.innerText = "Infected";
+            diseaseState.className = 'btn btn-lg btn-danger';
+
         }
         if(pred === "0") {
-            textOver.innerHTML = "Not Infected";
-            //textOver.style.color = "green";
-            if(textOver.classList.contains('btn-danger')){
-                textOver.classList.remove('btn-danger');
-                textOver.classList.add('btn-success');
-            }
+            diseaseState.hidden=false;
+            diseaseState.innerText = "Not Infected";
+            diseaseState.className = 'btn btn-lg btn-success';
         }
     };
     req.send(formData);
