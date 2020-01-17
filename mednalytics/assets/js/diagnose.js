@@ -11,8 +11,9 @@ function Upload() {
 }
 
 function Reset(){
-    document.getElementById("diagnose-form").reset();
-    document.getElementById("upload-button").disabled = false;
+    window.location.reload();
+    // document.getElementById("diagnose-form").reset();
+    // document.getElementById("upload-button").disabled = false;
 }
 
 
