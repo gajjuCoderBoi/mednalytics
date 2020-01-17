@@ -51,15 +51,15 @@ def api_image():
     print("[INFO] loading pre-trained network...")
     if model_name in "cancer":
         print("cancer model loaded")
-        model_path = r"C:\Users\Lenovo\Documents\Fiverr\Python\ML-Webpage- Prediction for images\breast_cancer_model.model" # Please enter the path for breast-cancer model
+        model_path = r"breast_cancer_model.model" # Please enter the path for breast-cancer model
 
     elif model_name in "malaria":
         print("Maalaria model loaded")
-        model_path = r"C:\Users\Lenovo\Documents\Fiverr\Python\ML-Webpage- Prediction for images\malaria_model.model" # Please enter the path for Malaria model
+        model_path = r"malaria_model.model" # Please enter the path for Malaria model
 
     elif model_name in "spiral":
         print("Spiral model loaded")
-        model_path = r"C:\Users\Lenovo\Documents\Fiverr\Python\ML-Webpage- Prediction for images\spiral_model.model" # Please enter the path for Spiral model
+        model_path = r"spiral_model.model" # Please enter the path for Spiral model
         
         if random.randint(3,6)%2:
             print("IFFFFFFFFFFFFFFFFFFFFFFFFFFff")
@@ -68,7 +68,7 @@ def api_image():
 
     elif model_name in "wave":
         print("Wave model loaded")
-        model_path = r"C:\Users\Lenovo\Documents\Fiverr\Python\ML-Webpage- Prediction for images\wave_model.model" # Please enter the path for wave model
+        model_path = r"wave_model.model" # Please enter the path for wave model
 
 
     model = load_model(model_path)
