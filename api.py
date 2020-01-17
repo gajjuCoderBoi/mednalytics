@@ -19,7 +19,7 @@ CORS(app)
 
 conn = sqlite3.connect('database.db')
 print("Opened database successfully")
-#conn.execute('CREATE TABLE MyUsers (firstName TEXT, lastName TEXT, ins_ID TEXT, city TEXT, dob TEXT, date TEXT)') #Run this line just one time to create table
+conn.execute('CREATE TABLE IF NOT EXISTS MyUsers (firstName TEXT, lastName TEXT, ins_ID TEXT, city TEXT, dob TEXT, date TEXT)') #Run this line just one time to create table
 
 @app.route('/prediction', methods=['POST'])
 def api_image():
