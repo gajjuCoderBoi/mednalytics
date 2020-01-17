@@ -50,26 +50,50 @@ function checkDisease(event) {
     let city = document.getElementById("city").value;
     let dob = document.getElementById("dob").value;
     let date = document.getElementById("date").value;
-
+    let progressBarDiseaseStatus = document.getElementById("progress-bar-disease-status");
 
     formData.append("photo", file);
     req.open("POST", 'http://localhost:5000/prediction?model='+disease+'&fname='+fname+'&lname='+lname+'&ins_ID='+ins_ID+'&city='+city+'&dob='+dob+'&date='+date);
-    req.onreadystatechange = function() {
+    req.onreadystatechange = function () {
 
         let pred = JSON.parse(this.response).Prediction.toString();
 
 
-        if(pred === "1"){
-            diseaseState.hidden=false;
+        if (pred === "1") {
+            progressBarSimulation(progressBarDiseaseStatus);
             diseaseState.innerText = "Infected";
             diseaseState.className = 'btn btn-lg btn-danger';
-
         }
-        if(pred === "0") {
-            diseaseState.hidden=false;
+        if (pred === "0") {
+            progressBarSimulation(progressBarDiseaseStatus);
+
             diseaseState.innerText = "Not Infected";
             diseaseState.className = 'btn btn-lg btn-success';
         }
     };
     req.send(formData);
+    function progressBarSimulation(progressBarDiseaseStatus){
+        var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1
+                var elem = progressBarDiseaseStatus;
+                var width = 0;
+                var id = setInterval(frame, 200);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                        diseaseState.hidden = false;
+                    } else {
+                        width+=5;
+                        elem.style.width = width + "%";
+                    }
+                }
+            }
+        }
+        move();
+    }
+
 }
+
