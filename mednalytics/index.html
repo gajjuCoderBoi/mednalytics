@@ -667,7 +667,91 @@
           </a>
         </div>
 
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <div class="ms-panel">
+            <div class="ms-panel-header">
+              <h6>DIAGNOSE DISEASE</h6>
+            </div>
+            <div class="ms-panel-body">
+              <!--<form>
+                <div class="form-group">
+                  <label for="exampleEmail">Email address</label>
+                  <input type="email" class="form-control" id="exampleEmail" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="examplePassword">Password</label>
+                  <input type="password" class="form-control" id="examplePassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleSelect">Example select</label>
+                  <select class="form-control" id="exampleSelect">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleTextarea">Example textarea</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                </div>
+              </form>-->
+              <div class="login px-sm-5 mx-auto mw-100 login-wrapper">
+                <form class="login-wrapper" id="diagnose-form">
+                  <div class="form-group">
+                    <select name="disease" class="form-control" id="disease">
+                      <option value="" disabled="" selected="">Select a Disease</option>
+                      <option value="spiral">Parkinsons Spiral</option>
+                      <option value="wave">Parkinsons Wave</option>
+                      <option value="cancer">Breast Cancer</option>
+                      <option value="malaria">Malaria</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="patient-name" id="fname" placeholder="Patient First Name" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="patient-name" id="lname" placeholder="Patient Last Name" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="dob" id="insuranceID" placeholder="Insurance ID" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="city" id="city" placeholder="City" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control hasDatepicker" name="dob" id="dob" placeholder="Date of Birth" required="">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control hasDatepicker" type="text" id="date" placeholder="Date">
+                  </div>
+                  <div class="form-group">
+                    <input type="file" id="real-file" hidden="hidden" onchange="Changed(event)">
+                    <button type="button" class="btn btn-secondary btn-lg" name="image-select" id="upload-button" onclick="Upload()"><i class="material-icons">add_photo_alternate</i> Select Image</button>
+                    <span id="custom-text" text="muted">No image chosen, yet</span>
 
+                  </div>
+                  <div class="form-group">
+                    <div class="conta">
+                      <br><img id="myImg" src="#" alt="" height="200" width="300">
+                      <div class="textover" id="textOver"></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" id="check-disease" class="btn btn-primary btn-lg" hidden="hidden" onclick="checkDisease(event)">Check Disease</button>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-info btn-lg" id="reset-button" hidden="hidden" onclick="Reset()">Reset</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
         <div class="col-xl-4 col-lg-6 col-md-12">
           <div class="ms-card ms-widget has-graph-full-width ms-infographics-widget">
             <div class="ms-card-body media">
@@ -1664,6 +1748,10 @@
   <script src="assets/js/framework.js"></script>
   <!-- Settings -->
   <script src="assets/js/settings.js"></script>
+
+
+<!-- Diagnose -->
+  <script src="assets/js/diagnose.js"></script>
 </body>
 
 </html>
